@@ -1,7 +1,7 @@
 package com.knoldus
 
-object AppDriver extends App{
+object AppDriver extends App {
   val fetchFileNamesService = new FetchFileNamesService()
-  println (fetchFileNamesService.extractInnerFiles("src", "src"))
-  Thread.sleep(5*1000)
+  println(fetchFileNamesService.extractInnerFiles("src", "src"))
+  Thread.sleep(5 * 1000)
 }

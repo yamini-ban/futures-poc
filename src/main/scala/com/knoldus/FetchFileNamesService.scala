@@ -1,18 +1,20 @@
 package com.knoldus
 
 import java.io.File
-import scala.concurrent.Future
+
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
 
 class FetchFileNamesService {
 
-  def extractInnerFiles(dir: String, newDir: String): Unit = Future{
+  def extractInnerFiles(dir: String, newDir: String): Unit = Future {
     val d = new File(newDir)
     if (d.exists && d.isDirectory) {
       val content = d.listFiles.toList
       for (component <- content) {
         if (component.isFile) {
-          println(component.getPath)
+          val result = component.getPath.split(dir + "/")
+          println(result(result.length - 1))
         }
         else {
           extractInnerFiles(dir, component.getPath)
