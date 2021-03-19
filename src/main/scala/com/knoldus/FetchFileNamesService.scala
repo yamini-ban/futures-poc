@@ -22,4 +22,8 @@ class FetchFileNamesService {
       }
     }
   }
+  def printName(): Unit =
+  {
+    println("Hi there, Yamini")
+  }
 }
